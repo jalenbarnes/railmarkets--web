@@ -43,6 +43,12 @@ enum Direction {
   SHORT
 }
 
+enum UserRole {
+  OWNER
+  ADMIN
+  USER
+}
+
 model User {
   id                String              @id @default(cuid())
   clerkUserId       String              @unique
@@ -50,6 +56,8 @@ model User {
   firstName         String?
   lastName          String?
   timezone          String?             @default("America/Chicago")
+  role              UserRole            @default(USER)
+  featureBypass     Boolean             @default(false)
   createdAt         DateTime            @default(now())
   updatedAt         DateTime            @updatedAt
   entitlements      UserEntitlement[]

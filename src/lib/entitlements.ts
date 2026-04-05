@@ -5,11 +5,14 @@ export type AccessLevel = 'FREE_PREVIEW' | 'FULL'
 export type EntitlementSnapshot = {
   tierCode: TierCode
   billingState: BillingState
+  featureBypass?: boolean
 }
 
 export const FREE_DAILY_CARD_LIMIT = 5
 
 export function hasPaidAccess(snapshot: EntitlementSnapshot) {
+  if (snapshot.featureBypass) return true
+
   return (
     ['BASE', 'MID', 'TOP'].includes(snapshot.tierCode) &&
     ['ACTIVE', 'GRACE'].includes(snapshot.billingState)

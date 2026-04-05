@@ -74,9 +74,9 @@ function statusBadge(status: string) {
 }
 
 export default async function FeedPage() {
-  const { userId } = await getAuthContext()
-  const accessLevel = getAccessLevel(mockEntitlement)
-  const feedMeta = createFeedMeta(accessLevel, 2)
+  const { userId, role, featureBypass } = await getAuthContext()
+  const accessLevel = getAccessLevel({ ...mockEntitlement, featureBypass })
+  const feedMeta = createFeedMeta(accessLevel, featureBypass ? 0 : 2)
   const isFreePreview = feedMeta.accessLevel === 'FREE_PREVIEW'
 
   return (
@@ -91,6 +91,8 @@ export default async function FeedPage() {
         <div className="rounded-xl border border-white/10 bg-white/5 px-4 py-3 text-sm backdrop-blur-xl">
           <div className="text-gray-400">Access</div>
           <div className="mt-1 text-white font-medium">{feedMeta.accessLevel}</div>
+          <div className="mt-3 text-gray-400">Role</div>
+          <div className="mt-1 text-white font-medium">{role}</div>
           <div className="mt-3 text-gray-400">Free Usage</div>
           <div className="mt-1 text-white font-medium">
             {feedMeta.freeDailyUsed} / {feedMeta.freeDailyLimit}
@@ -227,6 +229,11 @@ export default async function FeedPage() {
 
       <div className="rounded-2xl border border-white/10 bg-white/5 p-4 text-xs text-gray-500 backdrop-blur-xl">
         Current session user: <span className="font-mono text-gray-300">{userId}</span>
+        {featureBypass ? (
+          <span className="ml-3 rounded-full border border-[#d95e14]/30 bg-[#d95e14]/10 px-3 py-1 text-[10px] font-bold uppercase tracking-wide text-[#d95e14]">
+            Owner Bypass Active
+          </span>
+        ) : null}
       </div>
     </section>
   )
