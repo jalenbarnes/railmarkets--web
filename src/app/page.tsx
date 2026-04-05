@@ -1,6 +1,10 @@
 import Link from "next/link";
+import { auth } from "@clerk/nextjs/server";
 
-export default function LandingPage() {
+export default async function LandingPage() {
+  const session = await auth();
+  const isSignedIn = !!session.userId;
+
   return (
     <div className="min-h-screen bg-[#0a0a0a] text-white flex flex-col relative overflow-hidden font-sans selection:bg-[#d95e14] selection:text-white">
       {/* Ambient Glow */}
@@ -25,11 +29,24 @@ export default function LandingPage() {
           </div>
         </div>
 
-        <div className="flex items-center gap-6 text-sm font-medium">
-          <Link href="/sign-in" className="text-gray-400 hover:text-white transition-colors">Login</Link>
-          <Link href="/sign-up" className="bg-[#d95e14] hover:bg-[#b84f0f] text-white px-6 py-2 rounded-md transition-colors shadow-[0_4px_14px_0_rgba(217,94,20,0.39)]">
-            Sign Up
-          </Link>
+        <div className="flex items-center gap-4 text-sm font-medium">
+          {isSignedIn ? (
+            <>
+              <div className="rounded-full border border-[#10b981]/30 bg-[#10b981]/10 px-3 py-1 text-[11px] font-bold uppercase tracking-wide text-[#10b981]">
+                Signed In
+              </div>
+              <Link href="/app/feed" className="bg-[#d95e14] hover:bg-[#b84f0f] text-white px-6 py-2 rounded-md transition-colors shadow-[0_4px_14px_0_rgba(217,94,20,0.39)]">
+                Open App
+              </Link>
+            </>
+          ) : (
+            <>
+              <Link href="/sign-in" className="text-gray-400 hover:text-white transition-colors">Login</Link>
+              <Link href="/sign-up" className="bg-[#d95e14] hover:bg-[#b84f0f] text-white px-6 py-2 rounded-md transition-colors shadow-[0_4px_14px_0_rgba(217,94,20,0.39)]">
+                Sign Up
+              </Link>
+            </>
+          )}
         </div>
       </nav>
 
@@ -41,9 +58,21 @@ export default function LandingPage() {
         <p className="mt-6 text-gray-400 max-w-xl text-sm md:text-base leading-relaxed">
           Leverage proprietary AI-driven insights derived from real-time <br className="hidden md:block" /> market data across trusted global sources.
         </p>
-        <Link href="/sign-up" className="mt-10 bg-[#d95e14] hover:bg-[#b84f0f] text-white px-10 py-3.5 rounded-md font-medium transition-colors shadow-[0_4px_20px_0_rgba(217,94,20,0.4)]">
-          Get Started
-        </Link>
+
+        {isSignedIn ? (
+          <div className="mt-8 flex flex-col items-center gap-4">
+            <div className="rounded-xl border border-white/10 bg-white/5 px-5 py-3 text-sm text-gray-300 backdrop-blur-xl">
+              Session detected. You can now enter the protected app.
+            </div>
+            <Link href="/app/feed" className="bg-[#d95e14] hover:bg-[#b84f0f] text-white px-10 py-3.5 rounded-md font-medium transition-colors shadow-[0_4px_20px_0_rgba(217,94,20,0.4)]">
+              Open Live Feed
+            </Link>
+          </div>
+        ) : (
+          <Link href="/sign-up" className="mt-10 bg-[#d95e14] hover:bg-[#b84f0f] text-white px-10 py-3.5 rounded-md font-medium transition-colors shadow-[0_4px_20px_0_rgba(217,94,20,0.4)]">
+            Get Started
+          </Link>
+        )}
       </main>
 
       {/* Live Feed Mockup Sheet */}
@@ -63,7 +92,6 @@ export default function LandingPage() {
             <div className="mb-8">
               <h2 className="text-xl font-semibold text-white mb-4">Market Opportunities</h2>
               <div className="grid grid-cols-1 md:grid-cols-3 gap-4 relative z-10">
-                {/* SPX Card */}
                 <div className="bg-white/5 border border-white/10 rounded-lg p-4 flex flex-col">
                   <div className="flex items-center justify-between mb-4">
                     <div className="flex items-center gap-3">
@@ -83,7 +111,6 @@ export default function LandingPage() {
                   </div>
                 </div>
 
-                {/* NDX Card */}
                 <div className="bg-white/5 border border-white/10 rounded-lg p-4 flex flex-col">
                   <div className="flex items-center justify-between mb-4">
                     <div className="flex items-center gap-3">
@@ -103,7 +130,6 @@ export default function LandingPage() {
                   </div>
                 </div>
 
-                {/* DJI Card */}
                 <div className="bg-white/5 border border-white/10 rounded-lg p-4 flex flex-col">
                   <div className="flex items-center justify-between mb-4">
                     <div className="flex items-center gap-3">
@@ -133,7 +159,6 @@ export default function LandingPage() {
               </div>
               
               <div className="border border-white/10 rounded-lg bg-black/20 overflow-hidden">
-                {/* Row 1 */}
                 <div className="flex items-center justify-between py-3 px-4 border-b border-white/5">
                   <div className="flex items-center gap-4 w-[40%]">
                     <div className="w-6 h-6 rounded-full bg-white text-black flex items-center justify-center font-bold text-[10px]">S&P</div>
@@ -148,7 +173,6 @@ export default function LandingPage() {
                     <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
                   </div>
                 </div>
-                {/* Row 2 */}
                 <div className="flex items-center justify-between py-3 px-4">
                   <div className="flex items-center gap-4 w-[40%]">
                     <div className="w-6 h-6 rounded-full bg-[#0ea5e9] text-white flex items-center justify-center font-bold text-[10px]">NDQ</div>
@@ -166,7 +190,6 @@ export default function LandingPage() {
               </div>
             </div>
 
-            {/* Fade out at bottom */}
             <div className="absolute bottom-0 left-0 right-0 h-40 bg-gradient-to-t from-[#141414] via-[#141414]/80 to-transparent z-20 pointer-events-none"></div>
           </div>
         </div>
