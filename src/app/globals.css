@@ -1,26 +1,50 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* Dark Knight Matte Charcoal/Black Theme */
+  --background: #0f1115;
+  --foreground: #f4f4f5;
+  
+  /* Brand Colors */
+  --brand-orange: #d95e14;
+  --brand-orange-hover: #b84f0f;
+  --brand-glass: rgba(20, 22, 27, 0.6);
+  --brand-border: rgba(255, 255, 255, 0.08);
+
+  /* Status Colors */
+  --status-green: #10b981;
+  --status-red: #ef4444;
+  --status-yellow: #f59e0b;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  --color-brand-orange: var(--brand-orange);
+  --color-brand-orange-hover: var(--brand-orange-hover);
+  --color-brand-glass: var(--brand-glass);
+  --color-brand-border: var(--brand-border);
+  --color-status-green: var(--status-green);
+  --color-status-red: var(--status-red);
+  --color-status-yellow: var(--status-yellow);
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Utilities for frosted glass */
+@layer utilities {
+  .glass-panel {
+    background: var(--brand-glass);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid var(--brand-border);
+  }
 }
