@@ -28,7 +28,7 @@ export default function SignInPage() {
         </div>
 
         <div className="rounded-2xl border border-white/10 bg-white/5 p-6 backdrop-blur-xl shadow-2xl min-h-[520px] flex items-center justify-center">
-          <SignIn routing="path" path="/sign-in" signUpUrl="/sign-up" fallbackRedirectUrl="/app/feed" />
+          <SignIn routing="path" path="/sign-in" signUpUrl="/sign-up" fallbackRedirectUrl="/" forceRedirectUrl="/" />
         </div>
       </div>
     </main>
