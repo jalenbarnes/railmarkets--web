@@ -5,7 +5,7 @@ export type OwnerAccessContext = {
   featureBypass: boolean
 }
 
-const OWNER_EMAILS = ['agentbarnes032@gmail.com']
+const OWNER_EMAILS = ['jbarnesecu@icloud.com', 'agentbarnes032@gmail.com']
 
 export function resolveOwnerAccess(email?: string | null): OwnerAccessContext {
   if (email && OWNER_EMAILS.includes(email.toLowerCase())) {
