@@ -7,7 +7,7 @@ export default async function ProtectedAppLayout({
 }: {
   children: React.ReactNode
 }) {
-  const { isAuthenticated } = await getAuthContext()
+  const { isAuthenticated, email } = await getAuthContext()
 
   if (!isAuthenticated) {
     redirect('/sign-in?redirect_url=/app/feed')
@@ -26,12 +26,9 @@ export default async function ProtectedAppLayout({
               <Link href="/app/account" className="hover:text-white transition-colors">Account</Link>
             </nav>
           </div>
-          <Link
-            href="/sign-in"
-            className="rounded-md border border-white/10 bg-white/5 px-4 py-2 text-sm text-gray-300 hover:text-white transition-colors"
-          >
-            Account
-          </Link>
+          <div className="rounded-md border border-white/10 bg-white/5 px-4 py-2 text-sm text-gray-300">
+            {email ?? 'Authenticated'}
+          </div>
         </div>
       </header>
       <main className="mx-auto max-w-7xl px-6 py-10">{children}</main>
