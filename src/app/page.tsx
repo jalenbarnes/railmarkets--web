@@ -46,158 +46,128 @@ export default function LandingPage() {
         </Link>
       </main>
 
-      {/* Dashboard Mockup Sheet */}
-      <div className="relative z-20 w-full max-w-5xl mx-auto mt-20 px-4 md:px-8 flex-1 flex flex-col">
-        <div className="w-full flex-1 bg-[#141414]/80 backdrop-blur-xl border border-white/10 rounded-t-xl overflow-hidden flex flex-col shadow-2xl min-h-[400px]">
+      {/* Live Feed Mockup Sheet */}
+      <div className="relative z-20 w-full max-w-6xl mx-auto mt-20 px-4 md:px-8 flex-1 flex flex-col">
+        <div className="w-full flex-1 bg-[#141414]/90 backdrop-blur-xl border border-white/10 rounded-t-xl overflow-hidden flex flex-col shadow-[0_-10px_40px_rgba(0,0,0,0.5)] min-h-[400px]">
           
-          {/* Dashboard Header */}
-          <div className="flex items-center justify-between px-4 py-3 border-b border-white/5 bg-black/20">
-            <div className="flex items-center gap-4">
-              <div className="w-10 flex justify-center">
-                <svg width="10" height="14" viewBox="0 0 14 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M2 2L10 10L2 18" stroke="#d95e14" strokeWidth="4" strokeLinecap="round" strokeLinejoin="round"/>
-                </svg>
-              </div>
-              <span className="text-sm font-medium text-gray-300">Dashboard</span>
-            </div>
-            <div className="flex items-center gap-4 text-gray-500">
-              <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
-              <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path><path d="M13.73 21a2 2 0 0 1-3.46 0"></path></svg>
-              <div className="w-6 h-6 rounded-full bg-gray-700"></div>
+          {/* Top Bar */}
+          <div className="flex items-center px-6 py-4 border-b border-white/5 bg-black/40">
+            <div className="text-white font-semibold flex items-center gap-2">
+              <span className="w-2 h-2 rounded-full bg-[#d95e14]"></span>
+              Live Feed
             </div>
           </div>
 
-          <div className="flex flex-1">
-            {/* Sidebar */}
-            <div className="w-14 border-r border-white/5 bg-black/20 flex flex-col items-center py-4 gap-6 text-gray-600">
-              <svg width="18" height="18" fill="none" stroke="#d95e14" viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
-              <svg width="18" height="18" fill="none" stroke="currentColor" viewBox="0 0 24 24"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline></svg>
-              <svg width="18" height="18" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="17 8 12 3 7 8"></polyline><line x1="12" y1="3" x2="12" y2="15"></line></svg>
-              <svg width="18" height="18" fill="none" stroke="currentColor" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="16"></line><line x1="8" y1="12" x2="16" y2="12"></line></svg>
-              <svg width="18" height="18" fill="none" stroke="currentColor" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><line x1="3" y1="9" x2="21" y2="9"></line><line x1="9" y1="21" x2="9" y2="9"></line></svg>
-            </div>
-
-            {/* Main Content Area */}
-            <div className="flex-1 p-6 relative">
-              <h2 className="text-sm font-semibold text-gray-200 mb-6">Trade setups</h2>
-              
-              <div className="space-y-1 relative z-10">
-                {/* Row 1: AAPL */}
-                <div className="flex items-center justify-between py-3 border-b border-white/5">
-                  <div className="flex items-center gap-3 w-[20%]">
-                    <div className="w-8 h-8 rounded-full bg-white text-black flex items-center justify-center font-bold text-xs"></div>
-                    <div>
-                      <div className="text-sm font-semibold text-white">AAPL</div>
-                      <div className="text-xs text-gray-500">Stocks</div>
+          <div className="flex-1 p-6 md:p-8 relative">
+            {/* Market Opportunities */}
+            <div className="mb-8">
+              <h2 className="text-xl font-semibold text-white mb-4">Market Opportunities</h2>
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-4 relative z-10">
+                {/* SPX Card */}
+                <div className="bg-white/5 border border-white/10 rounded-lg p-4 flex flex-col">
+                  <div className="flex items-center justify-between mb-4">
+                    <div className="flex items-center gap-3">
+                      <div className="w-2 h-2 rounded-full bg-[#10b981] shadow-[0_0_8px_#10b981]"></div>
+                      <div className="w-8 h-8 rounded-full bg-white text-black flex items-center justify-center font-bold text-xs">S&P</div>
+                      <div>
+                        <div className="text-sm font-bold text-white">SPX</div>
+                        <div className="text-xs text-gray-400">S&P 500 Index</div>
+                      </div>
                     </div>
                   </div>
-                  <div className="w-[15%]">
-                    <div className="h-2 w-12 bg-white/10 rounded-sm mb-1.5"></div>
-                    <div className="h-2 w-8 bg-white/5 rounded-sm"></div>
+                  <div className="h-12 mb-4 w-full">
+                    <svg viewBox="0 0 100 30" className="w-full h-full stroke-[#10b981] fill-none stroke-[1.5]" strokeLinecap="round" strokeLinejoin="round"><path d="M0 25 L20 20 L40 28 L60 15 L80 20 L100 5" /></svg>
                   </div>
-                  <div className="w-[20%] h-8 pr-4">
-                    <svg viewBox="0 0 100 20" className="w-full h-full stroke-[#10b981] fill-none stroke-[1.5]" strokeLinecap="round" strokeLinejoin="round"><path d="M0 15 L20 10 L40 18 L60 5 L80 10 L100 2" /></svg>
-                  </div>
-                  <div className="w-[15%] flex justify-start">
-                    <span className="px-3 py-1 rounded-full text-[10px] font-bold text-[#10b981] border border-[#10b981]/30 bg-[#10b981]/10">READY NOW</span>
-                  </div>
-                  <div className="w-[15%]">
-                    <div className="h-2 w-16 bg-white/10 rounded-sm mb-1.5"></div>
-                    <div className="h-2 w-12 bg-white/5 rounded-sm"></div>
-                  </div>
-                  <div className="w-[15%] text-right text-xs font-medium text-[#d95e14] cursor-pointer hover:text-[#b84f0f] transition-colors">
-                    Get Started
+                  <div>
+                    <span className="px-3 py-1 rounded-full text-[10px] font-bold text-white border border-white/20 bg-white/5">READY NOW</span>
                   </div>
                 </div>
 
-                {/* Row 2: TSSH */}
-                <div className="flex items-center justify-between py-3 border-b border-white/5">
-                  <div className="flex items-center gap-3 w-[20%]">
-                    <div className="w-8 h-8 rounded-full bg-white text-black flex items-center justify-center font-bold text-xs"></div>
-                    <div>
-                      <div className="text-sm font-semibold text-white">TSSH</div>
-                      <div className="text-xs text-gray-500">Brand</div>
+                {/* NDX Card */}
+                <div className="bg-white/5 border border-white/10 rounded-lg p-4 flex flex-col">
+                  <div className="flex items-center justify-between mb-4">
+                    <div className="flex items-center gap-3">
+                      <div className="w-2 h-2 rounded-full bg-[#10b981] shadow-[0_0_8px_#10b981]"></div>
+                      <div className="w-8 h-8 rounded-full bg-[#0ea5e9] text-white flex items-center justify-center font-bold text-xs">NDQ</div>
+                      <div>
+                        <div className="text-sm font-bold text-white">NDX</div>
+                        <div className="text-xs text-gray-400">NASDAQ 100</div>
+                      </div>
                     </div>
                   </div>
-                  <div className="w-[15%]">
-                    <div className="h-2 w-12 bg-white/10 rounded-sm mb-1.5"></div>
-                    <div className="h-2 w-8 bg-white/5 rounded-sm"></div>
+                  <div className="h-12 mb-4 w-full">
+                    <svg viewBox="0 0 100 30" className="w-full h-full stroke-[#10b981] fill-none stroke-[1.5]" strokeLinecap="round" strokeLinejoin="round"><path d="M0 20 L20 25 L40 15 L60 22 L80 10 L100 8" /></svg>
                   </div>
-                  <div className="w-[20%] h-8 pr-4">
-                    <svg viewBox="0 0 100 20" className="w-full h-full stroke-[#ef4444] fill-none stroke-[1.5]" strokeLinecap="round" strokeLinejoin="round"><path d="M0 5 L20 12 L40 8 L60 18 L80 12 L100 20" /></svg>
-                  </div>
-                  <div className="w-[15%] flex justify-start">
-                    <span className="px-3 py-1 rounded-full text-[10px] font-bold text-[#10b981] border border-[#10b981]/30 bg-[#10b981]/10">READY NOW</span>
-                  </div>
-                  <div className="w-[15%]">
-                    <div className="h-2 w-16 bg-white/10 rounded-sm mb-1.5"></div>
-                    <div className="h-2 w-12 bg-white/5 rounded-sm"></div>
-                  </div>
-                  <div className="w-[15%] text-right text-xs font-medium text-[#d95e14] cursor-pointer hover:text-[#b84f0f] transition-colors">
-                    Get Started
+                  <div>
+                    <span className="px-3 py-1 rounded-full text-[10px] font-bold text-white border border-white/20 bg-white/5">READY ON PULLBACK</span>
                   </div>
                 </div>
 
-                {/* Row 3: TSLA */}
-                <div className="flex items-center justify-between py-3 border-b border-white/5">
-                  <div className="flex items-center gap-3 w-[20%]">
-                    <div className="w-8 h-8 rounded-full bg-[#ef4444] text-white flex items-center justify-center font-bold text-xs">T</div>
-                    <div>
-                      <div className="text-sm font-semibold text-white">TSLA</div>
-                      <div className="text-xs text-gray-500">TSLA</div>
+                {/* DJI Card */}
+                <div className="bg-white/5 border border-white/10 rounded-lg p-4 flex flex-col">
+                  <div className="flex items-center justify-between mb-4">
+                    <div className="flex items-center gap-3">
+                      <div className="w-2 h-2 rounded-full bg-[#10b981] shadow-[0_0_8px_#10b981]"></div>
+                      <div className="w-8 h-8 rounded-full bg-[#3b82f6] text-white flex items-center justify-center font-bold text-xs">DOW</div>
+                      <div>
+                        <div className="text-sm font-bold text-white">DJI</div>
+                        <div className="text-xs text-gray-400">Dow Jones Industrial</div>
+                      </div>
                     </div>
                   </div>
-                  <div className="w-[15%]">
-                    <div className="h-2 w-12 bg-white/10 rounded-sm mb-1.5"></div>
-                    <div className="h-2 w-8 bg-white/5 rounded-sm"></div>
+                  <div className="h-12 mb-4 w-full">
+                    <svg viewBox="0 0 100 30" className="w-full h-full stroke-[#ef4444] fill-none stroke-[1.5]" strokeLinecap="round" strokeLinejoin="round"><path d="M0 10 L20 15 L40 8 L60 25 L80 20 L100 28" /></svg>
                   </div>
-                  <div className="w-[20%] h-8 pr-4">
-                    <svg viewBox="0 0 100 20" className="w-full h-full stroke-[#ef4444] fill-none stroke-[1.5]" strokeLinecap="round" strokeLinejoin="round"><path d="M0 8 L20 10 L40 18 L60 12 L80 16 L100 8" /></svg>
-                  </div>
-                  <div className="w-[15%] flex justify-start">
-                    <span className="px-3 py-1 rounded-full text-[10px] font-bold text-[#10b981] border border-[#10b981]/30 bg-[#10b981]/10">READY NOW</span>
-                  </div>
-                  <div className="w-[15%]">
-                    <div className="h-2 w-16 bg-white/10 rounded-sm mb-1.5"></div>
-                    <div className="h-2 w-12 bg-white/5 rounded-sm"></div>
-                  </div>
-                  <div className="w-[15%] text-right text-xs font-medium text-[#d95e14] cursor-pointer hover:text-[#b84f0f] transition-colors">
-                    Get Started
-                  </div>
-                </div>
-                
-                {/* Row 4: BTCSSD */}
-                <div className="flex items-center justify-between py-3">
-                  <div className="flex items-center gap-3 w-[20%]">
-                    <div className="w-8 h-8 rounded-full bg-[#f59e0b] text-white flex items-center justify-center font-bold text-xs">B</div>
-                    <div>
-                      <div className="text-sm font-semibold text-white">BTCSSD</div>
-                      <div className="text-xs text-gray-500">Crypto</div>
-                    </div>
-                  </div>
-                  <div className="w-[15%]">
-                    <div className="h-2 w-12 bg-white/10 rounded-sm mb-1.5"></div>
-                    <div className="h-2 w-8 bg-white/5 rounded-sm"></div>
-                  </div>
-                  <div className="w-[20%] h-8 pr-4">
-                    <svg viewBox="0 0 100 20" className="w-full h-full stroke-[#10b981] fill-none stroke-[1.5]" strokeLinecap="round" strokeLinejoin="round"><path d="M0 12 L20 15 L40 5 L60 8 L80 2 L100 10" /></svg>
-                  </div>
-                  <div className="w-[15%] flex justify-start">
-                    <span className="px-3 py-1 rounded-full text-[10px] font-bold text-[#10b981] border border-[#10b981]/30 bg-[#10b981]/10">READY NOW</span>
-                  </div>
-                  <div className="w-[15%]">
-                    <div className="h-2 w-16 bg-white/10 rounded-sm mb-1.5"></div>
-                    <div className="h-2 w-12 bg-white/5 rounded-sm"></div>
-                  </div>
-                  <div className="w-[15%] text-right text-xs font-medium text-[#d95e14] cursor-pointer hover:text-[#b84f0f] transition-colors">
-                    Get Started
+                  <div>
+                    <span className="px-3 py-1 rounded-full text-[10px] font-bold text-white border border-white/20 bg-white/5">MONITOR</span>
                   </div>
                 </div>
               </div>
-
-              {/* Fade out at bottom */}
-              <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-[#141414] to-transparent z-20 pointer-events-none"></div>
             </div>
+
+            {/* Execution Plans */}
+            <div className="relative z-10">
+              <div className="flex items-baseline gap-4 mb-4">
+                <h2 className="text-xl font-semibold text-white">Execution Plans</h2>
+                <span className="text-[#d95e14] text-xs font-medium cursor-pointer hover:text-[#b84f0f] transition-colors hover:underline">Upgrade for detailed execution plans</span>
+              </div>
+              
+              <div className="border border-white/10 rounded-lg bg-black/20 overflow-hidden">
+                {/* Row 1 */}
+                <div className="flex items-center justify-between py-3 px-4 border-b border-white/5">
+                  <div className="flex items-center gap-4 w-[40%]">
+                    <div className="w-6 h-6 rounded-full bg-white text-black flex items-center justify-center font-bold text-[10px]">S&P</div>
+                    <div className="text-sm font-bold text-white">SPX</div>
+                    <div className="text-sm text-gray-400 truncate">S&P 500 Index</div>
+                  </div>
+                  <div className="w-[30%] flex gap-4 opacity-30 blur-sm">
+                    <div className="h-3 w-16 bg-white rounded-sm"></div>
+                    <div className="h-3 w-16 bg-white rounded-sm"></div>
+                  </div>
+                  <div className="w-[10%] flex justify-end opacity-50">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
+                  </div>
+                </div>
+                {/* Row 2 */}
+                <div className="flex items-center justify-between py-3 px-4">
+                  <div className="flex items-center gap-4 w-[40%]">
+                    <div className="w-6 h-6 rounded-full bg-[#0ea5e9] text-white flex items-center justify-center font-bold text-[10px]">NDQ</div>
+                    <div className="text-sm font-bold text-white">NDX</div>
+                    <div className="text-sm text-gray-400 truncate">NASDAQ 100</div>
+                  </div>
+                  <div className="w-[30%] flex gap-4 opacity-30 blur-sm">
+                    <div className="h-3 w-16 bg-white rounded-sm"></div>
+                    <div className="h-3 w-16 bg-white rounded-sm"></div>
+                  </div>
+                  <div className="w-[10%] flex justify-end opacity-50">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Fade out at bottom */}
+            <div className="absolute bottom-0 left-0 right-0 h-40 bg-gradient-to-t from-[#141414] via-[#141414]/80 to-transparent z-20 pointer-events-none"></div>
           </div>
         </div>
       </div>
