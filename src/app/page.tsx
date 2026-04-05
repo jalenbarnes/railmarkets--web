@@ -16,7 +16,7 @@ export default function LandingPage() {
         </div>
         
         <div className="hidden md:flex items-center gap-8 text-sm text-gray-400">
-          <Link href="/feed" className="hover:text-white transition-colors">Live Feed</Link>
+          <Link href="/app/feed" className="hover:text-white transition-colors">Live Feed</Link>
           <div className="flex items-center gap-1 cursor-pointer hover:text-white transition-colors">
             Markets <span className="text-[10px]">▼</span>
           </div>
@@ -26,8 +26,8 @@ export default function LandingPage() {
         </div>
 
         <div className="flex items-center gap-6 text-sm font-medium">
-          <Link href="/login" className="text-gray-400 hover:text-white transition-colors">Login</Link>
-          <Link href="/signup" className="bg-[#d95e14] hover:bg-[#b84f0f] text-white px-6 py-2 rounded-md transition-colors shadow-[0_4px_14px_0_rgba(217,94,20,0.39)]">
+          <Link href="/sign-in" className="text-gray-400 hover:text-white transition-colors">Login</Link>
+          <Link href="/sign-up" className="bg-[#d95e14] hover:bg-[#b84f0f] text-white px-6 py-2 rounded-md transition-colors shadow-[0_4px_14px_0_rgba(217,94,20,0.39)]">
             Sign Up
           </Link>
         </div>
@@ -41,7 +41,7 @@ export default function LandingPage() {
         <p className="mt-6 text-gray-400 max-w-xl text-sm md:text-base leading-relaxed">
           Leverage proprietary AI-driven insights derived from real-time <br className="hidden md:block" /> market data across trusted global sources.
         </p>
-        <Link href="/signup" className="mt-10 bg-[#d95e14] hover:bg-[#b84f0f] text-white px-10 py-3.5 rounded-md font-medium transition-colors shadow-[0_4px_20px_0_rgba(217,94,20,0.4)]">
+        <Link href="/sign-up" className="mt-10 bg-[#d95e14] hover:bg-[#b84f0f] text-white px-10 py-3.5 rounded-md font-medium transition-colors shadow-[0_4px_20px_0_rgba(217,94,20,0.4)]">
           Get Started
         </Link>
       </main>
