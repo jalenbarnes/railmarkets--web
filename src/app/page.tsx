@@ -36,10 +36,10 @@ export default function LandingPage() {
       {/* Hero */}
       <main className="relative z-10 flex flex-col items-center mt-16 md:mt-24 px-4 text-center">
         <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white tracking-wide uppercase leading-tight">
-          INSTITUTIONAL GRADE <br /> MARKET INTELLIGENCE
+          STAY ON TRACK WITH <br /> REAL TIME MARKET INSIGHTS
         </h1>
         <p className="mt-6 text-gray-400 max-w-xl text-sm md:text-base leading-relaxed">
-          Leverage Advanced Data, Trading Technology, and <br className="hidden md:block" /> Actionable Insights for Capital Markets.
+          Leverage proprietary AI-driven insights derived from real-time <br className="hidden md:block" /> market data across trusted global sources.
         </p>
         <Link href="/signup" className="mt-10 bg-[#d95e14] hover:bg-[#b84f0f] text-white px-10 py-3.5 rounded-md font-medium transition-colors shadow-[0_4px_20px_0_rgba(217,94,20,0.4)]">
           Get Started
