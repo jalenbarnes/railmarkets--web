@@ -26,9 +26,8 @@ export default function LandingPage() {
         </div>
 
         <div className="flex items-center gap-4 text-sm font-medium">
-          <Link href="/sign-in" className="text-gray-400 hover:text-white transition-colors">Login</Link>
           <Link href="/sign-up" className="bg-[#d95e14] hover:bg-[#b84f0f] text-white px-6 py-2 rounded-md transition-colors shadow-[0_4px_14px_0_rgba(217,94,20,0.39)]">
-            Sign Up
+            Get Started
           </Link>
         </div>
       </nav>
@@ -42,16 +41,9 @@ export default function LandingPage() {
           Leverage proprietary AI-driven insights derived from real-time <br className="hidden md:block" /> market data across trusted global sources.
         </p>
 
-        <div className="mt-8 rounded-xl border border-white/10 bg-white/5 px-5 py-3 text-sm text-gray-300 backdrop-blur-xl">
-          Sign in to access the protected app experience.
-        </div>
-
-        <div className="mt-6 flex flex-col sm:flex-row items-center gap-4">
+        <div className="mt-10 flex items-center justify-center">
           <Link href="/sign-up" className="bg-[#d95e14] hover:bg-[#b84f0f] text-white px-10 py-3.5 rounded-md font-medium transition-colors shadow-[0_4px_20px_0_rgba(217,94,20,0.4)]">
             Get Started
-          </Link>
-          <Link href="/sign-in" className="border border-white/10 bg-white/5 hover:bg-white/10 text-white px-8 py-3.5 rounded-md font-medium transition-colors">
-            Sign In
           </Link>
         </div>
       </main>
