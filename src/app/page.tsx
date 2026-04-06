@@ -1,10 +1,6 @@
 import Link from "next/link";
-import { auth } from "@clerk/nextjs/server";
 
-export default async function LandingPage() {
-  const session = await auth();
-  const isSignedIn = !!session.userId;
-
+export default function LandingPage() {
   return (
     <div className="min-h-screen bg-[#0a0a0a] text-white flex flex-col relative overflow-hidden font-sans selection:bg-[#d95e14] selection:text-white">
       {/* Ambient Glow */}
@@ -30,23 +26,10 @@ export default async function LandingPage() {
         </div>
 
         <div className="flex items-center gap-4 text-sm font-medium">
-          {isSignedIn ? (
-            <>
-              <div className="rounded-full border border-[#10b981]/30 bg-[#10b981]/10 px-3 py-1 text-[11px] font-bold uppercase tracking-wide text-[#10b981]">
-                Signed In
-              </div>
-              <Link href="/app/feed" className="bg-[#d95e14] hover:bg-[#b84f0f] text-white px-6 py-2 rounded-md transition-colors shadow-[0_4px_14px_0_rgba(217,94,20,0.39)]">
-                Open App
-              </Link>
-            </>
-          ) : (
-            <>
-              <Link href="/sign-in" className="text-gray-400 hover:text-white transition-colors">Login</Link>
-              <Link href="/sign-up" className="bg-[#d95e14] hover:bg-[#b84f0f] text-white px-6 py-2 rounded-md transition-colors shadow-[0_4px_14px_0_rgba(217,94,20,0.39)]">
-                Sign Up
-              </Link>
-            </>
-          )}
+          <Link href="/sign-in" className="text-gray-400 hover:text-white transition-colors">Login</Link>
+          <Link href="/sign-up" className="bg-[#d95e14] hover:bg-[#b84f0f] text-white px-6 py-2 rounded-md transition-colors shadow-[0_4px_14px_0_rgba(217,94,20,0.39)]">
+            Sign Up
+          </Link>
         </div>
       </nav>
 
@@ -59,20 +42,18 @@ export default async function LandingPage() {
           Leverage proprietary AI-driven insights derived from real-time <br className="hidden md:block" /> market data across trusted global sources.
         </p>
 
-        {isSignedIn ? (
-          <div className="mt-8 flex flex-col items-center gap-4">
-            <div className="rounded-xl border border-white/10 bg-white/5 px-5 py-3 text-sm text-gray-300 backdrop-blur-xl">
-              Session detected. You can now enter the protected app.
-            </div>
-            <Link href="/app/feed" className="bg-[#d95e14] hover:bg-[#b84f0f] text-white px-10 py-3.5 rounded-md font-medium transition-colors shadow-[0_4px_20px_0_rgba(217,94,20,0.4)]">
-              Open Live Feed
-            </Link>
-          </div>
-        ) : (
-          <Link href="/sign-up" className="mt-10 bg-[#d95e14] hover:bg-[#b84f0f] text-white px-10 py-3.5 rounded-md font-medium transition-colors shadow-[0_4px_20px_0_rgba(217,94,20,0.4)]">
+        <div className="mt-8 rounded-xl border border-white/10 bg-white/5 px-5 py-3 text-sm text-gray-300 backdrop-blur-xl">
+          Sign in to access the protected app experience.
+        </div>
+
+        <div className="mt-6 flex flex-col sm:flex-row items-center gap-4">
+          <Link href="/sign-up" className="bg-[#d95e14] hover:bg-[#b84f0f] text-white px-10 py-3.5 rounded-md font-medium transition-colors shadow-[0_4px_20px_0_rgba(217,94,20,0.4)]">
             Get Started
           </Link>
-        )}
+          <Link href="/sign-in" className="border border-white/10 bg-white/5 hover:bg-white/10 text-white px-8 py-3.5 rounded-md font-medium transition-colors">
+            Sign In
+          </Link>
+        </div>
       </main>
 
       {/* Live Feed Mockup Sheet */}
@@ -88,7 +69,6 @@ export default async function LandingPage() {
           </div>
 
           <div className="flex-1 p-6 md:p-8 relative">
-            {/* Market Opportunities */}
             <div className="mb-8">
               <h2 className="text-xl font-semibold text-white mb-4">Market Opportunities</h2>
               <div className="grid grid-cols-1 md:grid-cols-3 gap-4 relative z-10">
@@ -151,7 +131,6 @@ export default async function LandingPage() {
               </div>
             </div>
 
-            {/* Execution Plans */}
             <div className="relative z-10">
               <div className="flex items-baseline gap-4 mb-4">
                 <h2 className="text-xl font-semibold text-white">Execution Plans</h2>
