@@ -1,3 +1,6 @@
+import { redirect } from 'next/navigation'
+import { getAuthContext } from '@/lib/auth'
+
 const marketOpportunities = [
   {
     ticker: 'SPX',
@@ -64,8 +67,14 @@ function statusBadge(status: string) {
   return 'bg-white/5 text-gray-300 border border-white/10'
 }
 
-export default function FeedPage() {
-  const isFreePreview = true
+export default async function FeedPage() {
+  const { isAuthenticated, role, featureBypass, email } = await getAuthContext()
+
+  if (!isAuthenticated) {
+    redirect('/sign-in?redirect_url=/feed')
+  }
+
+  const isFreePreview = !featureBypass
 
   return (
     <section className="min-h-screen bg-[#0a0a0a] text-white px-4 py-10 md:px-8">
@@ -79,9 +88,11 @@ export default function FeedPage() {
           </div>
           <div className="rounded-xl border border-white/10 bg-white/5 px-4 py-3 text-sm backdrop-blur-xl">
             <div className="text-gray-400">Access</div>
-            <div className="mt-1 text-white font-medium">FREE PREVIEW</div>
-            <div className="mt-3 text-gray-400">Free Usage</div>
-            <div className="mt-1 text-white font-medium">2 / 5</div>
+            <div className="mt-1 text-white font-medium">{featureBypass ? 'OWNER FULL ACCESS' : 'FREE PREVIEW'}</div>
+            <div className="mt-3 text-gray-400">Role</div>
+            <div className="mt-1 text-white font-medium">{role}</div>
+            <div className="mt-3 text-gray-400">Email</div>
+            <div className="mt-1 break-all text-xs text-gray-300">{email ?? 'Unavailable'}</div>
           </div>
         </div>
 
@@ -135,7 +146,9 @@ export default function FeedPage() {
               <div>
                 <h2 className="text-xl font-semibold text-white">Execution Plans</h2>
                 <p className="mt-1 text-sm text-gray-400">
-                  Free-tier view shows entry and status. Full execution logic stays locked.
+                  {isFreePreview
+                    ? 'Free-tier view shows entry and status. Full execution logic stays locked.'
+                    : 'Owner access is active. Full execution logic is visible for validation.'}
                 </p>
               </div>
               {isFreePreview ? (
@@ -183,13 +196,13 @@ export default function FeedPage() {
 
                   <div className="col-span-6 md:col-span-2">
                     <div className="rounded-lg border border-dashed border-white/10 bg-white/5 p-3 text-xs text-gray-400">
-                      Locked on Free
+                      {isFreePreview ? 'Locked on Free' : 'Execution logic visible to owner'}
                     </div>
                   </div>
 
                   <div className="col-span-6 md:col-span-2">
                     <div className="rounded-lg border border-dashed border-white/10 bg-white/5 p-3 text-xs text-gray-400">
-                      Upgrade to unlock
+                      {isFreePreview ? 'Upgrade to unlock' : 'Targets visible to owner'}
                     </div>
                   </div>
                 </div>
