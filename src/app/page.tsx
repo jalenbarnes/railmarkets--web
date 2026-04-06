@@ -16,7 +16,7 @@ export default function LandingPage() {
         </div>
         
         <div className="hidden md:flex items-center gap-8 text-sm text-gray-400">
-          <Link href="/app/feed" className="hover:text-white transition-colors">Live Feed</Link>
+          <Link href="/feed" className="hover:text-white transition-colors">Live Feed</Link>
           <div className="flex items-center gap-1 cursor-pointer hover:text-white transition-colors">
             Markets <span className="text-[10px]">▼</span>
           </div>
